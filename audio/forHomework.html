@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="lib/font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/myHomework.css" />
+	</head>
+
+	<body>
+		<div class="viewBox relative">
+			<video class="video" width="800px">
+				<source src="demo.mp4" />
+			</video>
+			<div id="durationbar" class="time relative">
+				<progress id="positionBar" value="0" max="100"></progress>
+				<span id="all"></span>
+				<span id="part"></span>
+			</div>
+
+			<!--按钮-->
+			<div class="control-bar relative">
+				<i id="play" class="fa fa-play"></i>
+				<i id="stop" class="fa fa-pause"></i>
+				<i id="backward" class="fa fa-backward"></i>
+				<i id="forward" class="fa fa-forward"></i>
+				<i id="play-circle-o" class="fa fa-play-circle-o"></i>
+				<i id="screen" class="fa fa-arrows-alt"></i>
+				<span id="fast">x2</span>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		var oVideo = document.querySelector("video");
+		var fontBox = document.querySelector(".control-bar");
+		var oPlay = document.getElementById("play");
+		var oStop = document.getElementById("stop");
+		var oBackward = document.getElementById("backward");
+		var oForward = document.getElementById("forward");
+		var oFast = document.getElementById("fast");
+		var oAll = document.getElementById("all");
+		var oPart = document.getElementById("part");
+		var oCircle = document.getElementById("play-circle-o");
+		var oSreen = document.getElementById("screen");
+		var oPositionBar = document.getElementById('positionBar');
+		
+		oPlay.onclick = function() {
+			oVideo.play();
+			oStop.style.display = "block";
+			oPlay.style.display = "none";
+		}
+
+		oStop.onclick = function() {
+			oVideo.pause();
+			oStop.style.display = "none";
+			oPlay.style.display = "block";
+		}
+
+		oBackward.onclick = function() {}
+
+		oForward.onclick = function() {}
+
+		oFast.onclick = function() {
+			oVideo.playbackRate = 2;
+		}
+
+		var flag = true; //判断是否循环
+		oCircle.onclick = function() {
+			if(flag) {
+				oVideo.setAttribute("loop", "true");
+				oCircle.style.color = "blue"
+				flag = false;
+			} else {
+				oVideo.setAttribute("loop", "false");
+				oCircle.style.color = "white";
+				flag = true;
+			}
+		}
+
+		oSreen.onclick = function() {
+			FullScreen();
+		}
+
+		function FullScreen() {
+			if(oVideo.requestFullscreen) {
+				oVideo.requestFullscreen();
+			} else if(oVideo.mozRequestFullScreen) {
+				oVideo.mozRequestFullScreen();
+			} else if(oVideo.webkitRequestFullScreen) {
+				oVideo.webkitRequestFullScreen();
+			}
+		}
+		oVideo.ontimeupdate = function() {
+			oPositionBar.value = (oVideo.currentTime / oVideo.duration * 100);
+			oAll.innerHTML = "00:" + (Array(parseInt(2)).join(0) + parseInt(oVideo.duration)).slice(-2);
+			oPart.innerHTML = "00:" + (Array(parseInt(2)).join(0) + parseInt(oVideo.currentTime)).slice(-2);
+		}
+		durationbar.onmouseup = function(e) {
+			oPositionBar.value = e.offsetX / this.offsetWidth * oVideo.duration;
+			oVideo.currentTime = e.offsetX / this.offsetWidth * oVideo.duration
+			oAll.innerHTML = "00:" + (Array(parseInt(2)).join(0) + parseInt(oVideo.duration)).slice(-2);
+			oPart.innerHTML = "00:" + (Array(parseInt(2)).join(0) + parseInt(oVideo.currentTime)).slice(-2);
+			console.log(oPositionBar.value);
+		}
+	</script>
+
+</html>

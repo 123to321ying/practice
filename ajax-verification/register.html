@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Demo - Validform - 一行代码搞定整站的表单验证！ &copy;瑞金佬的前端路</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+
+	<body>
+		<div class="main">
+			<div class="wraper">
+				<form class="registerform" action="demo/ajax_post.php">
+					<table width="100%" style="table-layout:fixed;">
+						<tr>
+							<td>
+								<input type="text" datatype="zh" name="name" placeholder="您的用户名" class="inputxt" errormsg="昵称至少3个中文,最多10个中文！" />
+								<div class="Validform_checktip">昵称为3~10个中文</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="password" name="userpassword" placeholder="输入密码" class="inputxt" datatype="password" nullmsg="请设置密码！" errormsg="6-20个字母、数字、下划线 ！" />
+								<div class="Validform_checktip">6-20个字母、数字、下划线 </div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="password" value="" name="userpassword2" placeholder="再输入密码" class="inputxt" datatype="*" recheck="userpassword" nullmsg="请再输入一次密码！" errormsg="您两次输入的账号密码不一致！" />
+								<div class="Validform_checktip">两次输入密码需一致</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="text" datatype="tel" value="" name="tel" placeholder="输入手机号码" class="inputxt" datatype="*" nullmsg="请输入手机号！" errormsg="请输入正确格式手机号！" />
+								<div class="Validform_checktip">输入正确手机号码</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="text" value="" name="email" placeholder="输入邮箱地址" class="inputxt" datatype="e"  nullmsg="请输入邮箱地址！" errormsg="请输入正确格式邮箱地址！" />
+								<div class="Validform_checktip">输入正确邮箱地址</div>
+							</td>
+						</tr>
+					</table>
+					<button class="register">注册</button><br />
+					<button class="old">已有账号登陆</button>
+				</form>
+			</div>
+		</div>
+
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Validform_v5.3.2_min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				//$(".registerform").Validform();  //就这一行代码！;
+
+				$(".registerform").Validform({
+					tiptype: function(msg, o, cssctl) {
+						if(!o.obj.is("form")) { //验证表单元素时o.obj为该表单元素，全部验证通过提交表单时o.obj为该表单对象;
+							var objtip = o.obj.siblings(".Validform_checktip");
+							cssctl(objtip, o.type);
+							objtip.text(msg);
+						} else {
+							var objtip = o.obj.find("#msgdemo");
+							cssctl(objtip, o.type);
+							objtip.text(msg);
+						}
+					},
+					ajaxPost: true,
+					datatype:{
+						'tel': /0?(13|14|15|17|18|19)[0-9]{9}/,
+						'password': /^(\w){6,20}$/,
+						'zh': /^[\u4e00-\u9fa5]{3,10}$/,
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

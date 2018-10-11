@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="960" height="300"></canvas>
+		<img src="img/timg.jpg" />
+	</body>
+	<script type="text/javascript">
+		var oCanvas = document.getElementById("canvas");
+		var width = oCanvas.width;
+		var height = oCanvas.height;
+		//上下文 (画笔)
+		var context = oCanvas.getContext("2d");
+
+		context.fillStyle = "rgba(0,0,255,.1)";
+		context.fillRect(0, 0, width, height);
+
+		/*脸皮*/
+		context.beginPath();
+		context.moveTo(626, 10);
+		context.quadraticCurveTo(625,18,611,25);
+		context.quadraticCurveTo(596,27,593,50);
+		context.quadraticCurveTo(593,59,576,68);
+		context.quadraticCurveTo(566,70,568,95);
+		context.quadraticCurveTo(570,105,550,110);
+		context.lineTo(525,160);
+		context.quadraticCurveTo(514,155,510,175);
+		context.quadraticCurveTo(515,190,500,195);
+		context.bezierCurveTo(495,205,503,220,510,220);
+		context.quadraticCurveTo(538,220,545,228);
+		context.quadraticCurveTo(555,245,580,235);
+		context.quadraticCurveTo(595,233,600,253);
+		context.quadraticCurveTo(620,260,630,255);
+		context.quadraticCurveTo(650,250,653,270);
+		context.quadraticCurveTo(665,285,688,252);
+		
+		context.quadraticCurveTo(690,230,708,225);
+		context.quadraticCurveTo(720,230,730,215);
+		
+		context.quadraticCurveTo(740,210,745,190);
+		context.quadraticCurveTo(743,175,764,156);
+		context.quadraticCurveTo(780,145,780,125);
+		context.quadraticCurveTo(777,105,797,90);
+		context.quadraticCurveTo(815,80,793,70);
+		context.quadraticCurveTo(770,73,760,54);
+		context.quadraticCurveTo(755,45,730,52);
+		context.quadraticCurveTo(720,55,703,30);
+		context.quadraticCurveTo(690,20,680,25);
+		context.quadraticCurveTo(660,40,650,10);
+		context.quadraticCurveTo(630,-5,626,10);
+		context.closePath();
+		context.fillStyle = "#fffb16";
+		context.fill();
+		context.strokeStyle = "darkgoldenrod";
+		context.stroke();
+		
+		/*眼睛*/
+		context.beginPath();
+		context.arc(630,90,30,0,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "white";
+		context.fill();
+		context.strokeStyle = "black";
+		context.stroke();
+		
+		context.beginPath();
+		context.arc(635,94,10,0,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "deepskyblue";
+		context.fill();
+		context.strokeStyle = "black";
+		context.stroke();
+		
+		context.beginPath();
+		context.arc(635,94,6,0,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "black";
+		context.fill();
+		/*右*/
+		context.beginPath();
+		context.arc(675,110,33,0,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "white";
+		context.fill();
+		context.strokeStyle = "black";
+		context.stroke();
+		
+		context.beginPath();
+		context.arc(663,107,11,0,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "deepskyblue";
+		context.fill();
+		context.strokeStyle = "black";
+		context.stroke();
+		
+		context.beginPath();
+		context.arc(662,106,6,0,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "black";
+		context.fill();
+		
+		context.beginPath();
+		context.moveTo(623,60);
+		context.lineTo(622,50);
+		context.closePath();
+		context.strokeStyle = "black"
+		context.stroke();
+		
+		context.beginPath();
+		context.moveTo(637,60);
+		context.lineTo(640,50);
+		context.closePath();
+		context.strokeStyle = "black"
+		context.stroke();
+		
+		context.beginPath();
+		context.moveTo(648,65);
+		context.lineTo(655,57);
+		context.closePath();
+		context.strokeStyle = "black"
+		context.stroke();
+		
+		context.beginPath();
+		context.moveTo(670,77);
+		context.lineTo(668,65);
+		context.closePath();
+		context.strokeStyle = "black"
+		context.stroke();
+		
+		context.beginPath();
+		context.moveTo(690,79);
+		context.lineTo(694,69);
+		context.closePath();
+		context.strokeStyle = "black"
+		context.stroke();
+		
+		context.beginPath();
+		context.moveTo(704,92);
+		context.lineTo(715,85);
+		context.closePath();
+		context.strokeStyle = "black"
+		context.stroke();
+		
+		/*脸蛋*/
+		context.beginPath();
+		context.arc(570,127,35,0,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "#d85301";
+		context.fill();
+		
+		context.beginPath();
+		context.arc(660,160,41,0,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "#d85301";
+		context.fill();
+		
+		context.beginPath();
+		context.arc(573,130,33,0,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "#fffb16";
+		context.fill();
+		
+		context.beginPath();
+		context.arc(662,164,40,0,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "#fffb16";
+		context.fill();
+		
+		context.beginPath();
+		context.ellipse(685, 145 ,5, 2, 50*Math.PI/180, 0 ,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "#d85301";
+		context.fill();
+		
+		context.beginPath();
+		context.ellipse(670, 150 ,5, 2, 10*Math.PI/180, 0 ,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "#d85301";
+		context.fill();
+		
+		context.beginPath();
+		context.ellipse(663, 135 ,5, 2, 10*Math.PI/180, 0 ,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "#d85301";
+		context.fill();
+		
+		/*鼻子*/
+		context.beginPath();
+		context.moveTo(635,126);
+		context.quadraticCurveTo(608,90,603,73);
+		context.quadraticCurveTo(585,69,590,95);
+		context.quadraticCurveTo(599,114,621,137);
+		context.closePath();
+		context.fillStyle = "#fffb16";
+		context.fill();
+		context.strokeStyle = "black"
+		context.stroke();
+		
+//		context.fillStyle = "red";
+//		context.rotate(-20*Math.PI/180);
+//		context.fillRect(635,126,10,5);
+
+		/*嘴巴*/
+		context.beginPath();
+		context.moveTo(567,163);
+		context.quadraticCurveTo(540,125,520,117);
+		context.lineTo(540,90);
+		context.quadraticCurveTo(550,115,607,120);
+		context.closePath();
+		context.fillStyle = "#fffb16";
+		context.fill();
+		context.strokeStyle = "black"
+		context.stroke();
+		
+		context.beginPath();
+		context.ellipse(520, 95 ,30,15, -55*Math.PI/180, 0 ,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "#fffb16";
+		context.fill();
+		context.strokeStyle = "black"
+		context.stroke();
+		
+		context.beginPath();
+		context.ellipse(520, 95 ,10,3, -55*Math.PI/180, 0 ,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "#4c101c";
+		context.fill();
+		context.strokeStyle = "black"
+		context.stroke();
+		
+		context.moveTo(510,103);
+		context.bezierCurveTo(510,108,525,105,528,83);
+		context.strokeStyle = "black"
+		context.stroke();
+		
+		context.beginPath();
+		context.moveTo(567,163);
+		context.lineTo(607,120);
+		context.closePath();
+		
+		context.moveTo(550,130);
+		context.quadraticCurveTo(575,150,580,165);
+		context.strokeStyle = "black"
+		context.stroke();
+		
+		context.moveTo(550,118);
+		context.quadraticCurveTo(575,135,590,155);
+		context.strokeStyle = "black"
+		context.stroke();
+		
+		context.moveTo(557,115);
+		context.quadraticCurveTo(575,130,605,130);
+		context.strokeStyle = "black"
+		context.stroke();
+		
+		/*麻子*/
+		context.beginPath();
+		context.ellipse(635,20 ,10, 6, -80*Math.PI/180, 0 ,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "#90a01c";
+		context.fill();
+		
+		context.beginPath();
+		context.ellipse(730,130 ,14, 9, -90*Math.PI/180, 0 ,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "#90a01c";
+		context.fill();
+		
+		context.beginPath();
+		context.ellipse(750,100 ,18, 12, -90*Math.PI/180, 0 ,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "#969a07";
+		context.fill();
+		
+		context.beginPath();
+		context.ellipse(660,230 ,16, 12, -110*Math.PI/180, 0 ,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "#969a07";
+		context.fill();
+		
+		context.beginPath();
+		context.ellipse(690,210 ,8, 6, -110*Math.PI/180, 0 ,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "#969a07";
+		context.fill();
+		
+		context.beginPath();
+		context.ellipse(530,200 ,13, 8, -110*Math.PI/180, 0 ,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "#9a9d2c";
+		context.fill();
+		
+		/*圈圈*/
+		context.beginPath();
+		context.ellipse(480,60 ,30, 20, -45*Math.PI/180, 0 ,2*Math.PI);
+		context.closePath();
+		context.strokeStyle = "white";
+		context.stroke();
+		var grd = context.createLinearGradient(550,150,350,-10);
+		grd.addColorStop(1,'rgba(0,0,255,0.4)');
+		grd.addColorStop(0,'rgba(0,255,0,0.4)');
+		context.fillStyle = grd;
+//		context.fill();
+		
+		context.beginPath();
+		context.ellipse(480,60 ,20, 13, -45*Math.PI/180, 0 ,2*Math.PI);
+		context.closePath();
+		context.strokeStyle = "white";
+		context.stroke();
+		
+		context.beginPath();
+		context.arc(510,75,7,0,2*Math.PI);
+		context.closePath();
+		context.strokeStyle = "white";
+		context.stroke();
+		
+		context.beginPath();
+		context.ellipse(490,80 ,5, 3, -100*Math.PI/180, 0 ,2*Math.PI);
+		context.closePath();
+		context.fillStyle = "white";
+		context.fill();
+		
+		context.beginPath();
+		context.ellipse(880,60 ,25, 20, -100*Math.PI/180, 0 ,2*Math.PI);
+		context.closePath();
+		context.strokeStyle = "white";
+		context.stroke();
+		
+		context.moveTo(865,50)
+		context.bezierCurveTo(865,70,870,90,890,75);
+		context.strokeStyle = "white";
+		context.stroke();
+	</script>
+
+</html>

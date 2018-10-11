@@ -1,0 +1,109 @@
+.white {
+	color: white;
+}
+
+.relative {
+	position: relative;
+}
+
+.viewBox {
+	width: 800px;
+	background: #999;
+	margin: 0 auto;
+}
+
+.control-bar {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	color: #fff;
+	font-size: 24px;
+}
+
+.control-bar,
+#stop {
+	display: none;
+}
+
+#stop,
+#start {
+	position: absolute;
+	left: 0px;
+	bottom: 0;
+}
+
+#backward {
+	position: absolute;
+	left: 35px;
+	bottom: 0;
+}
+
+#forward {
+	position: absolute;
+	left: 78px;
+	bottom: 0;
+}
+
+#fast {
+	position: absolute;
+	left: 123px;
+	bottom: 0;
+	background: rgba(255, 255, 255, .5);
+	padding: 0 5px;
+	border: 1px white;
+}
+
+#play-circle-o{
+	position: absolute;
+	left: 172px;
+	bottom: 0;
+}
+
+#screen{
+	position: absolute;
+	left: 200px;
+	bottom: 0;
+}
+
+.control-bar i {
+	margin: 0 5px;
+	font-size: 24px;
+	
+}
+
+.viewBox:hover .control-bar {
+	display: block;
+}
+
+
+#durationbar {
+	width: 800px;
+	height: 10px;
+}
+
+#durationbar progress {
+	width: 100%;
+	height: 20px;
+}
+
+.time{
+	font-size: 18px;
+	color: white;
+}
+
+.time #all{
+	position: absolute;
+	right: 15px;
+	bottom: 15px;
+}
+
+.time #part{
+	position: absolute;
+	right: 40px;
+	bottom: 15px;
+}
+
+.time #part:after{
+	content: "/";
+	margin: 0 30px;
+}

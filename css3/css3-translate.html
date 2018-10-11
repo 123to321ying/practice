@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+			}
+			.fl{
+				float: left;
+			}
+			.clear{
+				clear: both;
+			}
+			.tran5 {
+				-webkit-transition: all 0.8s;
+				-moz-transition: all 0.8s;
+				-ms-transition: all 0.8s;
+				-o-transition: all 0.8s;
+				transition: all 0.8s;
+			}
+			
+			.relative {
+				position: relative;
+			}
+			
+			li.back {
+				width: 23%;
+				/*overflow: hidden;*/
+				text-align: center;
+				margin-right: 3px;
+			}
+			li.back:hover{
+				
+			}
+			li.back:hover .box{
+				display: block;
+			}
+			img {
+				width: 100%;
+			}
+			
+			.up1 {
+				opacity: 0;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				width: 100%;
+				color: white;
+			}
+			
+			.up2 {
+				opacity: 0;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				width: 100%;
+				color: white;
+			}
+			.down{
+				color: black;
+				position: absolute;
+				top: 90%;
+				left: 0;
+				width: 100%;
+				overflow: hidden;
+				height: 36px;
+				opacity: 0;
+				
+			}
+			li.back:hover .up1{
+				opacity: 1;
+				transform: translateY(-230px);
+				color: white;
+				font-weight: 800;
+			}
+			li.back:hover .up2{
+				opacity: 1;
+				transform: translateY(-212px);
+				color: white;
+				font-weight: 800;
+			}
+			li.back:hover .down{
+				transform: translateY(50px);
+				opacity: 1;
+			}
+			ul {
+				margin: 0;
+				padding: 0;
+				height: 292px;
+				list-style: none;
+			}
+			
+			.box {
+				display: none;
+				width: 100%;
+				height: 99%;
+				background:rgba(0,0,0,0.2);
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="view ">
+			<ul>
+				<li class="back fl relative">
+					<img src="img/1521689467697.jpg" />
+					<div class="box tran5">
+
+					</div>
+					<span class="up1 tran5">萨玛-Sam</span>
+					<span class="up2 tran5">网页设计师</span>
+					<span class="down  tran5">精通Photoshop，Coreldraw,Frontpage,Dreamweaver等多项网页设计工具的网页设计人员。网页设计师可以将平面设计中的审美观点套用到网站设计上面来</span>
+					
+				</li>
+				<li class="back fl relative">
+					<img src="img/1521689467697.jpg" />
+					<div class="box tran5">
+
+					</div>
+					<span class="up1 tran5">萨玛-Sam</span>
+					<span class="up2 tran5">网页设计师</span>
+					<span class="down  tran5">精通Photoshop，Coreldraw,Frontpage,Dreamweaver等多项网页设计工具的网页设计人员。网页设计师可以将平面设计中的审美观点套用到网站设计上面来</span>
+					
+				</li>
+				<li class="back fl relative">
+					<img src="img/1521689467697.jpg" />
+					<div class="box tran5">
+
+					</div>
+					<span class="up1 tran5">萨玛-Sam</span>
+					<span class="up2 tran5">网页设计师</span>
+					<span class="down  tran5">精通Photoshop，Coreldraw,Frontpage,Dreamweaver等多项网页设计工具的网页设计人员。网页设计师可以将平面设计中的审美观点套用到网站设计上面来</span>
+					
+				</li>
+				<li class="back fl relative">
+					<img src="img/1521689467697.jpg" />
+					<div class="box tran5">
+
+					</div>
+					<span class="up1 tran5">萨玛-Sam</span>
+					<span class="up2 tran5">网页设计师</span>
+					<span class="down  tran5">精通Photoshop，Coreldraw,Frontpage,Dreamweaver等多项网页设计工具的网页设计人员。网页设计师可以将平面设计中的审美观点套用到网站设计上面来</span>
+					
+				</li>
+				<div class="clear"></div>
+			</ul>
+
+		</div>
+	</body>
+
+</html>

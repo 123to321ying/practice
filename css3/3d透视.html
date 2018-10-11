@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.stage {
+				transform-style: preserve-3d;
+				perspective: 1000px;
+				-webkit-user-drag: none;
+				-webkit-user-select: none;
+			}
+			
+			.stage .list {
+				transform-style: preserve-3d;
+				width: 200px;
+				height: 300px;
+				margin: 150px auto;
+				list-style: none;
+				padding: 0;
+				transform: rotateX(-20deg) rotateY(0deg);
+				/*animation: around 12s linear infinite 5.5s;*/
+			}
+			
+			.list img {
+				-webkit-user-drag: none;
+				-webkit-user-select: none;
+			}
+			
+			.list:hover {
+				/*animation-play-state: paused;*/
+				animation-direction: reverse;
+			}
+			
+			.list li {
+				position: absolute;
+			}
+			
+			.list.active li:nth-child(1) {
+				transform: translateZ(300px);
+				/*transition: all 0.5s 4.5s;*/
+				transition-delay: 0.2s;
+			}
+			
+			.list.active li:nth-child(2) {
+				transform: rotateY(40deg) translateZ(300px);
+				/*transition: all 0.5s 0.5s;*/
+				transition-delay: 0.5s;
+			}
+			
+			.list.active li:nth-child(3) {
+				transform: rotateY(80deg) translateZ(300px);
+				/*transition: all 0.5s 1s;*/
+				transition-delay: 1.5s;
+			}
+			
+			.list.active li:nth-child(4) {
+				transform: rotateY(120deg) translateZ(300px);
+				/*transition: all 0.5s 1.5s;*/
+				transition-delay: 2s;
+			}
+			
+			.list.active li:nth-child(5) {
+				transform: rotateY(160deg) translateZ(300px);
+				/*transition: all 0.5s 2s;*/
+				transition-delay: 2.5s;
+			}
+			
+			.list.active li:nth-child(6) {
+				transform: rotateY(200deg) translateZ(300px);
+				/*transition: all 0.5s 2.5s;*/
+				transition-delay: 3s;
+			}
+			
+			.list.active li:nth-child(7) {
+				transform: rotateY(240deg) translateZ(300px);
+				transition-delay: 3.5s;
+				/*transition: all 0.5s 3s;*/
+			}
+			
+			.list.active li:nth-child(8) {
+				transform: rotateY(280deg) translateZ(300px);
+				/*transition: all 0.5s 3.5s;*/
+				transition-delay: 4s;
+			}
+			
+			.list.active li:nth-child(9) {
+				transform: rotateY(320deg) translateZ(300px);
+				/*transition: all 0.5s 4s;*/
+				transition-delay: 4.5s;
+			}
+			
+			@keyframes around {
+				from {
+					transform: rotateX(-20deg) rotateY(0deg);
+				}
+				to {
+					transform: rotateX(-20deg) rotateY(360deg);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="stage" id="stage">
+			<ul class="list">
+				<li><img src="img/QQ图片20180911115409.jpg" /></li>
+				<li><img src="img/02.jpg" /></li>
+				<li><img src="img/03.jpg" /></li>
+				<li><img src="img/QQ图片20180911115409.jpg" /></li>
+				<li><img src="img/02.jpg" /></li>
+				<li><img src="img/03.jpg" /></li>
+				<li><img src="img/QQ图片20180911115409.jpg" /></li>
+				<li><img src="img/02.jpg" /></li>
+				<li><img src="img/03.jpg" /></li>
+			</ul>
+		</div>
+		<script src="js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="hammer/hammer.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			setTimeout(function() {
+				$('.list').addClass("active");
+			}, 500);
+		</script>
+		<script type="text/javascript">
+			var oStage = document.getElementById("stage");
+			var oList = document.querySelector(".list");
+			var oRotateX, oRotateY;
+
+			var hammer = new Hammer(oStage);
+
+			var pinch = new Hammer.Pinch();
+			var rotate = new Hammer.Rotate();
+			pinch.recognizeWith(rotate);
+			hammer.add([pinch, rotate]);
+
+			hammer.on("panstart", function(e) {
+				var startX = e.center.x;
+				var startY = e.center.y;
+				console.log("pan " + oRotateY);
+				hammer.on("pan panup", function(e) {
+					var endX = e.center.x;
+					var endY = e.center.y;
+					var dertaX = endX - startX;
+					var dertaY = endY - startY;
+					oList.style.transform = "rotateY(" + dertaX　 + "deg) rotateX(" + dertaY　 + "deg)";
+				})
+			})
+			hammer.on("rotate pinch", function(e) {
+				oRotateX = e.deltaY;
+				var oscale = e.scale;
+				oList.style.transform = "rotateX(" + oRotateX * 5 + "deg) scale(" + oscale + ")";
+			})
+		</script>
+	</body>
+
+</html>

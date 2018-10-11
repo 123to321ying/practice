@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/homework.css" />
+		
+	</head>
+
+	<body>
+		<div class="view">
+			<div class="item relative" id="box">
+				<img class="fir" src="img/95742.png" />
+				<span id="txt">isfhirhgierhgihrg</span>
+				<img class="sec" src="img/95742.png" />
+			</div>
+		</div>
+		<script src="hammer/hammer.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var oBox = document.getElementById("box");
+			var hammer = new Hammer(oBox);
+
+			hammer.on("panstart", function(e) {
+				hammer.on("panright", function(e) {
+					if(e.deltaX >= 0){
+						hammer.on("panend" , function (e) {
+							oBox.style.left = 0 + "px";
+						})
+					}
+					oBox.style.left = e.deltaX + "px";
+				})
+				hammer.on("panleft", function(e) {
+					if(e.deltaX <= -200){
+						oBox.style.left = -200 + "px";
+						hammer.on("panend" , function (e) {
+							oBox.style.left = -100 + "px";
+						})
+					}
+					oBox.style.left = e.deltaX + "px";
+				})
+			})
+			
+
+			//			hammer.add(new Hammer.Tap());
+			//			
+			//			hammer.add(new Hammer.Tap({event:"quadrupletap",taps:4}));
+			//			
+			//			hammer.get("quadrupletap").recognizeWith("tap");
+			//			
+			//			hammer.on("tap quadrupletap",function (e) {
+			//				oBox.textContent += e.type + " ";
+			//			})
+			//			
+
+			/*var pinch = new Hammer.Pinch();
+			var rotate = new Hammer.Rotate();
+			pinch.recognizeWith(rotate);
+			hammer.add([pinch,rotate]);
+			hammer.on("pinch rotate",function (e) {
+				oBox.textContent += e.type + " ";
+			});*/
+
+			/*hammer.get("pan").set({direction: Hammer.DIRECTION_ALL });
+			
+			hammer.on("panleft panright panup pandown tap press ", function (e) {
+//				var left = oBox.offsetLeft;
+//				var top = oBox.offsetTop; 
+				oBox.textContent = e.type + "gesture detected.";
+			})*/
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="430" height="430"></canvas>
+	</body>
+	<script type="text/javascript">
+		var oCanvas = document.getElementById("canvas");
+		var width = oCanvas.width;
+		var height = oCanvas.height;
+		//上下文 (画笔)
+		var context = oCanvas.getContext("2d");
+
+		/*绘制背景*/
+		context.fillStyle = "#41d4ca";
+		context.fillRect(0, 0, width, height);
+
+		var num = 0;
+		(function move() {
+			requestAnimationFrame(move);
+
+			/*清空画布*/
+			context.clearRect(0, 0, width, height);
+
+			/*绘制背景*/
+			context.fillStyle = "#41d4ca";
+			context.fillRect(0, 0, width, height);
+
+			var grd = context.createLinearGradient(0, 100, 0, 170);
+			grd.addColorStop(0, 'rgba(255,255,255,0.6)');
+			grd.addColorStop(1, 'rgba(255,255,255,0.01)');
+
+			/*背景云 - 小*/
+			context.save();
+			context.translate(1 * num / 12, -20);
+			context.beginPath();
+			context.arc(80, 150, 20, 0, 2 * Math.PI);
+			context.arc(100, 145, 27, 0, 2 * Math.PI);
+			context.arc(120, 155, 20, 0, 2 * Math.PI);
+			context.closePath();
+			context.fillStyle = grd;
+			context.fill()
+			context.restore();
+
+			context.save();
+			context.translate(1 * num / 12, -60);
+			context.beginPath();
+			context.arc(340, 150, 20, 0, 2 * Math.PI);
+			context.arc(360, 145, 27, 0, 2 * Math.PI);
+			context.arc(380, 155, 20, 0, 2 * Math.PI);
+			context.closePath();
+			context.fillStyle = grd;
+			context.fill()
+			context.restore();
+
+			var grd = context.createLinearGradient(0, 200, 0, 270);
+			grd.addColorStop(0, 'rgba(255,255,255,0.6)');
+			grd.addColorStop(1, 'rgba(255,255,255,0.1)');
+			/*云*/
+			context.save();
+			context.translate(1 * num / 8, 10);
+			context.beginPath();
+			context.arc(0, 260, 40, 0, 2 * Math.PI);
+			context.arc(40, 250, 50, 0, 2 * Math.PI);
+			context.arc(120, 250, 85, 0, 2 * Math.PI);
+			context.arc(200, 270, 50, 0, 2 * Math.PI);
+			context.closePath();
+			context.fillStyle = grd;
+			context.fill()
+			context.restore();
+
+			/*绘制后山坡*/
+			context.save();
+			context.translate(0, 0);
+			context.beginPath();
+			context.moveTo(0, 268);
+			context.quadraticCurveTo(70, 270, 216, 298);
+			context.lineTo(216, 430);
+			context.lineTo(0, 430);
+			context.closePath();
+			context.fillStyle = "#3accc9";
+			context.fill()
+			context.restore();
+
+			/*绘制前山坡*/
+			context.save();
+			context.translate(0, 0);
+			context.beginPath();
+			context.moveTo(0, 330);
+			context.quadraticCurveTo(126, 330, 230, 290);
+			context.quadraticCurveTo(370, 230, 440, 286);
+			context.lineTo(430, 430);
+			context.lineTo(0, 430);
+			context.closePath();
+			context.fillStyle = "#15bfbc";
+			context.fill()
+			context.restore();
+
+			/*右二*/
+			/*绘制柱子*/
+			context.save();
+			context.translate(300, 189);
+			context.beginPath();
+			context.moveTo(0, 0);
+			context.lineTo(-5, 95);
+			context.quadraticCurveTo(0, 100, 5, 95);
+			context.lineTo(2, 0);
+			context.closePath();
+			context.fillStyle = "#18b3b5";
+			context.fill()
+			context.restore();
+			
+			/*影子*/
+			var shadow =  context.createLinearGradient(300,280,335,320);
+			shadow.addColorStop(0,"rgba(0,0,0,.15)");
+			shadow.addColorStop(1,"rgba(0,0,0,0)");
+			
+			context.save();
+			context.translate(300, 285);
+			context.beginPath();
+			context.moveTo(-4, 0);
+			context.lineTo(35, 17);
+			context.lineTo(30, 12);
+			context.lineTo(6, 0);
+			context.closePath();
+			context.fillStyle = shadow;
+			context.fill()
+			context.restore();
+
+			/*绘制扇叶中间圆点*/
+			context.save();
+			context.translate(300, 189);
+			context.beginPath();
+			context.arc(0, 0, 1, 0, 2 * Math.PI);
+			context.closePath();
+			context.fillStyle = "white";
+			context.fill()
+			context.restore();
+
+			/*绘制扇叶*/
+			context.save();
+			context.translate(300, 189);
+			context.rotate((Math.PI / 180) * num);
+
+			for(var i = 0; i < 3; i++) {
+				context.rotate(2 * Math.PI / 5);
+				context.beginPath();
+				context.moveTo(0, 0);
+				context.lineTo(30, 30);
+				context.lineTo(32, 31);
+				context.lineTo(34, 39);
+				context.lineTo(5, 10);
+				context.closePath();
+				context.rotate(Math.PI / 4);
+				context.lineWidth = 2;
+				context.fillStyle = "#27c0be";
+				context.fill();
+			}
+
+			context.restore();
+
+			/*右一*/
+			/*绘制柱子*/
+			context.save();
+			context.translate(390, 230);
+			context.beginPath();
+			context.moveTo(0, 0);
+			context.lineTo(-2, 35);
+			context.quadraticCurveTo(0, 36, 2, 35);
+			context.lineTo(2, 0);
+			context.closePath();
+			context.fillStyle = "#18b3b5";
+			context.fill()
+			context.restore();
+
+			/*绘制扇叶中间圆点*/
+			context.save();
+			context.translate(390, 230);
+			context.beginPath();
+			context.arc(0, 0, 1, 0, 2 * Math.PI);
+			context.closePath();
+			context.fillStyle = "white";
+			context.fill()
+			context.restore();
+
+			/*绘制扇叶*/
+			context.save();
+			context.translate(390, 230);
+			context.rotate((Math.PI / 180) * num / 2);
+
+			for(var i = 0; i < 3; i++) {
+				context.rotate(2 * Math.PI / 5);
+				context.beginPath();
+				context.moveTo(0, 0);
+				context.lineTo(15, 15);
+				context.lineTo(17, 16);
+				context.lineTo(17, 18);
+				context.lineTo(3, 7);
+				context.closePath();
+				context.rotate(Math.PI / 4);
+				context.lineWidth = 2;
+				context.fillStyle = "#27c0be";
+				context.fill();
+			}
+
+			context.restore();
+
+			/*左一*/
+			/*绘制柱子*/
+			context.save();
+			context.translate(60, 236);
+			context.beginPath();
+			context.moveTo(0, -2);
+			context.lineTo(-1.5, 36);
+			context.quadraticCurveTo(0, 37, 1.5, 36);
+			context.lineTo(2, -2);
+			context.closePath();
+			context.fillStyle = "#2fc0b3";
+			context.fill()
+			context.restore();
+
+			/*绘制扇叶*/
+			context.save();
+			context.translate(60, 236);
+			context.rotate((Math.PI / 180) * num / 2);
+
+			for(var i = 0; i < 3; i++) {
+				context.rotate(2 * Math.PI / 5);
+				context.beginPath();
+				context.moveTo(0, 0);
+				context.lineTo(15, 15);
+				context.lineTo(17, 16);
+				context.lineTo(17, 18);
+				context.lineTo(3, 7);
+				context.closePath();
+				context.rotate(Math.PI / 4);
+				context.lineWidth = 2;
+				context.fillStyle = "#2fc0b3";
+				context.fill();
+			}
+
+			context.restore();
+
+			/*左二*/
+			/*绘制柱子*/
+			context.save();
+			context.translate(110, 250);
+			context.beginPath();
+			context.moveTo(0, 0);
+			context.lineTo(-1.2, 30);
+			context.quadraticCurveTo(0, 31, 1.2, 30);
+			context.lineTo(1.2, 0);
+			context.closePath();
+			context.fillStyle = "#2fc0b3";
+			context.fill()
+			context.restore();
+
+			/*绘制扇叶*/
+			context.save();
+			context.translate(110, 250);
+			context.rotate((Math.PI / 180) * num / 2);
+
+			for(var i = 0; i < 3; i++) {
+				context.rotate(2 * Math.PI / 5);
+				context.beginPath();
+				context.moveTo(0, 0);
+				context.lineTo(10, 10);
+				context.lineTo(12, 12);
+				context.lineTo(14, 13);
+				context.lineTo(3, 7);
+				context.closePath();
+				context.rotate(Math.PI / 4);
+				context.lineWidth = 2;
+				context.fillStyle = "#2fc0b3";
+				context.fill();
+			}
+
+			context.restore();
+			num += 2;
+			if(num >= 1430){
+				num = 0;
+			}
+
+		})();
+	</script>
+
+</html>

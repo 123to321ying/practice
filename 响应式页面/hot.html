@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>热门推荐</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/hot.css" />
+	</head>
+
+	<body>
+		<div class="page clearfix">
+			<!--手机端nav-->
+			<div class="nav_s">
+				<i class="iconfont icon-menu"></i>
+				<img src="img/147504172577.png" />
+			</div>
+			<!--导航栏-->
+			<div class="nav clearfix">
+				<div class="fl">
+					<img src="img/147504172577.png" />
+				</div>
+				<ul id="nav" class="clearfix fr">
+					<li class="fl relative">
+						<a href="#">首页</a>
+						<div class="line"></div>
+					</li>
+					<li class="fl relative">
+						<a href="#">热销推荐</a>
+						<div class="line"></div>
+					</li>
+					<li class="nav_down fl relative">
+						<a href="#">关于我们<i class="iconfont icon-arrow-down-"></i></a>
+						<div class="line"></div>
+						<ul class="down_nav">
+							<li id="item">
+								<a href="#">集团介绍</a>
+							</li>
+							<li id="item">
+								<a href="#">企业团队</a>
+							</li>
+							<li id="item">
+								<a href="#">招聘人才</a>
+							</li>
+						</ul>
+					</li>
+					<li class="fl relative">
+						<a href="#">行业新闻</a>
+						<div class="line"></div>
+					</li>
+					<li class="fl relative">
+						<a href="#">集团优势</a>
+						<div class="line"></div>
+					</li>
+					<li class="fl relative">
+						<a href="#">联系我们</a>
+						<div class="line"></div>
+					</li>
+					<li class="fl relative">
+						<a href="#">返回UEmo</a>
+						<div class="line"></div>
+					</li>
+				</ul>
+			</div>
+
+			<!--左侧导航-->
+			<ul class="left_nav">
+				<li>
+					<a href="#">全部</a>
+				</li>
+				<li>
+					<a href="#">出境游</a>
+				</li>
+				<li>
+					<a href="#">国内游</a>
+				</li>
+				<li>
+					<a href="#">周边游</a>
+				</li>
+				<li>
+					<a href="#">自由行</a>
+				</li>
+			</ul>
+
+			<div class="right_view">
+				<div class="item fl clearfix">
+					<div class="img_box relative">
+						<img src="img/1481265913658.png" />
+						<div class="detail">
+							陪你去看星光乐园-圣塔莫妮卡海滩在66号公路的尽头，很多电影电视剧曾在此地拍摄电影《铁达尼号》Jack对Rose说要带Rose来圣塔莫尼卡和坐摩天轮...
+						</div>
+					</div>
+					<div class="txt_box fl">
+						<span class="name_txt">东西海岸大瀑布+黄石公园+大提顿公园14日</span>
+						<span class="price">¥ 17999 起</span>
+					</div>
+					<div class="fr">
+						<i class="iconfont icon-zhaoyou"></i>
+					</div>
+				</div>
+
+				<div class="item fl clearfix">
+					<div class="img_box relative">
+						<img src="img/1481265913658.png" />
+						<div class="detail">
+							陪你去看星光乐园-圣塔莫妮卡海滩在66号公路的尽头，很多电影电视剧曾在此地拍摄电影《铁达尼号》Jack对Rose说要带Rose来圣塔莫尼卡和坐摩天轮...
+						</div>
+					</div>
+					<div class="txt_box fl">
+						<span class="name_txt">东西海岸大瀑布+黄石公园+大提顿公园14日</span>
+						<span class="price">¥ 17999 起</span>
+					</div>
+					<div class="fr">
+						<i class="iconfont icon-zhaoyou"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$temp = 0;
+			$("ul.left_nav li").children("a").eq(0).css({
+				borderLeft: "2px solid #000",
+				paddingLeft: "12px"
+			})
+			$("ul.left_nav li").click(function() {
+				$temp = $(this).index();
+				$("ul.left_nav li").each(function() {
+					$(this).children("a").eq(0).css({
+						borderLeft: "",
+						paddingLeft: ""
+					})
+				})
+				$(this).children("a").eq(0).css({
+					borderLeft: "2px solid #000",
+					paddingLeft: "12px",
+					transsition: "width 0.5s"
+				})
+			})
+			$("ul.left_nav li").hover(function() {
+				$("ul.left_nav li").each(function() {
+					$(this).children("a").eq(0).css({
+						borderLeft: "",
+						paddingLeft: ""
+					})
+				})
+				$(this).children("a").eq(0).css({
+					borderLeft: "2px solid #000",
+					paddingLeft: "12px",
+					transsition: "width 0.5s"
+				})
+			}, function() {
+				$("ul.left_nav li").each(function() {
+					$(this).children("a").eq(0).css({
+						borderLeft: "",
+						paddingLeft: ""
+					})
+				})
+				$("ul.left_nav li").children("a").eq($temp).css({
+					borderLeft: "2px solid #000",
+					paddingLeft: "12px",
+					transsition: "width 0.5s"
+				})
+			})
+		</script>
+	</body>
+
+</html>

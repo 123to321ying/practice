@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box {
+				width: 200px;
+				height: 200px;
+				background-color: #000000;
+				position: absolute;
+				left: 0;
+				top: 0;
+				color: #FFFFFF;
+				line-height: 200px;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box" class="box">
+			拖拽事件，文字选中
+		</div>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oBox = document.getElementById("box");
+
+				oBox.onselectstart = function() {
+					return false;
+				}
+				oBox.ondragstart = function() {
+					return false;
+				}
+
+				var width = oBox.clientWidth;
+				var height = oBox.clientHeight;
+
+				oBox.onmousedown = function(e) {
+					var top = this.offsetTop;
+					var left = this.offsetLeft;
+					var originX = e.clientX;
+					var originY = e.clientY;
+
+					oBox.onmousemove = function(e) {
+						var endX = e.clientX;
+						var endY = e.clientY;
+						var distanceX = endX - originX;
+						var distanceY = endY - originY;
+						this.style.left = (left + distanceX) + "px";
+						this.style.top = (top + distanceY) + "px";
+					}
+
+				}
+				//移除事件
+				document.onmouseup = function() {
+					oBox.onmousemove = null;
+				}
+				
+				oBox.onmousemove = function(e) {
+					
+				}
+			}
+		</script>
+
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<!--<script>
+			var $box = $('#box');
+			$box.on('mousedown', function(e) {
+				//鼠标的X Y
+				var mouseX = e.clientX;
+				var mouseY = e.clientY;
+
+				//box的left top
+				var boxLeft = $(this).offset().left;
+				var boxTop = $(this).offset().top;
+				//修正文字选中
+				$box.on('selectstart dragstart', function() {
+					return false;
+				});
+				//拖拽过程-mousemove
+				$box.on('mousemove', moveHandle);
+
+				function moveHandle(e) {
+					//X Y轴的距离 
+					var distanceX = e.clientX - mouseX;
+					var distanceY = e.clientY - mouseY;
+					//赋值box的新left/top
+					$(this).css('left', boxLeft + distanceX);
+					$(this).css('top', boxTop + distanceY);
+				}
+				//拖拽结束-mouseup
+				$(document).on('mouseup', function() {
+					$box.off('mousemove', moveHandle);
+				});
+			})
+		</script>-->
+
+	</body>
+
+</html>

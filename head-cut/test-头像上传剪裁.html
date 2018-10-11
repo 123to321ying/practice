@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.view {
+				position: relative;
+				width: 360px;
+				height: 360px;
+				background-color: black;
+				margin: auto;
+			}
+			
+			img {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+			}
+			
+			.imgBox {
+				position: relative;
+				width: 360px;
+				height: 360px;
+				overflow: hidden;
+			}
+			
+			.file {
+				position: absolute;
+				bottom: -33px;
+				left: 0;
+				display: inline-block;
+				background: #D0EEFF;
+				border: 1px solid #99D3F5;
+				border-radius: 4px;
+				padding: 4px 147px;
+				overflow: hidden;
+				color: #1E88C7;
+				text-decoration: none;
+			}
+			
+			.file input {
+				position: absolute;
+				font-size: 100px;
+				right: 0;
+				top: 0;
+				opacity: 0;
+			}
+			
+			.file:hover {
+				background: #AADFFD;
+				border-color: #78C3F3;
+				color: #004974;
+				text-decoration: none;
+			}
+			
+			.out {
+				background: deeppink;
+				border: 1px solid hotpink;
+				border-radius: 4px;
+				padding: 4px 147px;
+				margin-top: 39px;
+				color: white;
+			}
+			
+			.bigbox {
+				width: 360px;
+				height: 360px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="view" id="view">
+			<div class="bigbox">
+				<div class="imgBox" id="imgBox">
+					<canvas id="cvs" width="360" height="360"></canvas>
+				</div>
+			</div>
+
+			<a href="javascript:;" class="file">选择文件
+				<input type="file" name="" id="input">
+			</a>
+			<div class="out" id="out">
+				剪裁图片
+			</div>
+			<canvas id="c3" width="360" height="360"></canvas>
+		</div>
+		<script src="hammer/hammer.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var oBox = document.getElementById("view");
+			var oInput = document.getElementById("input");
+			var oImgBox = document.getElementById("imgBox");
+			var Out = document.getElementById("out");
+
+			var fileReader = new FileReader(),
+				img = new Image();; //文件读取
+			var oImg; //存放图片信息
+
+			var hammer = new Hammer.Manager(oBox);
+			oInput.addEventListener('change', readFile, false);
+			var canvas = document.getElementById("cvs");　　　　　　
+			var ctx = canvas.getContext("2d");
+			var oScale, oAngle;
+
+			function readFile() {　　
+				var file = this.files[0]; //获取上传文件列表中第一个文件
+				var reader = new FileReader(); //实例一个文件对象
+				reader.readAsDataURL(file); //把上传的文件转换成url
+				　　 //当文件读取成功便可以调取上传的接口
+				reader.onload = function(e) {　　　　
+					var image = new Image();　　　　 // 设置src属性 
+					image.src = this.result;　　　　 // 绑定load事件，加载完成后执行，避免同步问题
+					image.onload = function() {　　　　　　　　
+						// canvas清屏
+						var pinch = new Hammer.Pinch();
+						var rotate = new Hammer.Rotate();
+						pinch.recognizeWith(rotate);
+						hammer.add([pinch, rotate]);
+						ctx.drawImage(image, 0, 0, 360, 360);
+						hammer.on("pinch rotate", function(e) {
+							oScale = e.scale;
+							oAngle = e.angle;
+							ctx.clearRect(0, 0, 1000, 1000);　　　　
+							ctx.scale(oScale, oScale);
+							ctx.rotate(oAngle);
+							ctx.drawImage(image, 0, 0, 400, 400);
+						});
+
+					};　　　　
+				}
+			};
+
+			Out.onclick = function() {
+				var canvas3 = document.getElementById("c3");
+				var canvas2 = document.createElement("canvas");
+				var cxt2 = canvas2.getContext("2d");
+				var dataImg = ctx.getImageData(0, 0, 360, 360);
+
+				cxt2.putImageData(dataImg, 0, 0, 0, 0, 360, 360);
+
+				var img2 = canvas2.toDataURL("image/png");
+				var cxt3 = canvas3.getContext("2d");
+				var img3 = new Image();
+
+				img3.src = img2;
+				img3.onload = function() {
+					cxt3.drawImage(img3, 0, 0, 360, 360);
+				}
+			}
+		</script>
+	</body>
+
+</html>

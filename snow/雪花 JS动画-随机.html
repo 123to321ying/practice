@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				margin: 0;
+			}
+			
+			.bg {
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				background: url(img/image23.jpg) no-repeat top center;
+				background-size: cover;
+				overflow: hidden;
+			}
+			
+			.bg img {
+				position: absolute;
+				left: 0;
+				top: 10px;
+				width: 100%;
+				height: 100%;
+				-webkit-transition: all 0.5s ease-out;
+				-moz-transition: all 0.5s ease-out;
+				-ms-transition: all 0.5s ease-out;
+				-o-transition: all 0.5s ease-out;
+				transition: all 0.5s ease-out;
+			}
+			
+			.cube {
+				z-index: 100;
+				position: absolute;
+				top: 0;
+			}
+			
+			/*.cube img {
+				width: 100%;
+				line-height: 0;
+				display: block;
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<div id="box" class="bg">
+
+		</div>
+		<script type="text/javascript">
+			var oBox = document.getElementById("box");
+			var winHeight = window.innerHeight;
+			var timer;
+			//整个窗口的宽度
+			var winWidth = window.innerWidth;
+
+			function createCube() {
+				//定时器
+				var tick;
+				//创建元素
+				var oCube = document.createElement("div");
+				oCube.className = "cube";
+
+				//定义图片num数字
+				var num = Math.random() * 20 + 1;
+
+				//修饰元素
+				//随机宽度 20~60px
+				oCube.style.height = oCube.style.width = Math.random() * 40 + 20 + "px";
+//				oCube.style.width = Math.random()*80 + 10 + "px";
+				
+				//窗体高度 0~winWidth
+				oCube.style.left = Math.random() * winWidth + "px";
+				//随机品种雪花
+				oCube.innerHTML = '<img src="img/snowflake' + parseInt(num) + '.png"/>';
+
+				oBox.appendChild(oCube);
+				//插入元素开始运动
+				tick = setInterval(function() {
+					move(oCube);
+				}, 100);
+			}
+			//随时间随机生成cube
+			timer = setInterval(function() {
+				createCube();
+			}, 1000);
+
+			function move(element) {
+				//cube的left值
+				var top = element.offsetTop;
+				if(top >= winWidth) {
+					oBox.removeChild(element);
+					return;
+				}
+				element.style.top = top + 6 + "px";
+			}
+		</script>
+	</body>
+
+</html>

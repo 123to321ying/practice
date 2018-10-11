@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.loading {
+				width: 100px;
+				height: 100px;
+				background: green;
+				color: white;
+				line-height: 100px;
+				text-align: center;
+				margin: 50px auto;
+				animation: load 3s ease-in-out infinite;
+			}
+			/*定义动画*/
+			
+			@keyframes load {
+				0% {
+					background: green;
+					transform: rotate(0deg) scale(1);
+				}
+				50% {
+					background: greenyellow;
+					border-radius: 50%;
+					transform: rotate(360deg) scale(0.7);
+				}
+				100% {
+					background: green;
+					transform: rotate(720deg) scale(1);
+				}
+			}
+			
+			.myload {
+				width: 100px;
+				height: 100px;
+				color: blue;
+				/*background: pink;*/
+				line-height: 100px;
+				text-align: center;
+				margin: 50px auto;
+				position: relative;
+			}
+			
+			.myload li {
+				position: absolute;
+			}
+			
+			.myload li:nth-child(1) {
+				top: 45px;
+				left: 16px;
+				animation: load1 1s ease-in-out infinite;
+			}
+			
+			.myload li:nth-child(2) {
+				top: -47px;
+				left: 19px;
+				animation: load2 1s ease-in-out infinite;
+			}
+			
+			.myload li:nth-child(3) {
+				top: -48px;
+				left: 111px;
+				animation: load3 1s ease-in-out infinite;
+			}
+			
+			.myload li:nth-child(4) {
+				top: 47px;
+				left: 115px;
+				animation: load4 1s ease-in-out infinite;
+			}
+			
+			@keyframes load1 {
+				from {
+					transform: rotate(0deg) translate(0px);
+				}
+				to {
+					transform: rotate(-60deg) translate(68px);
+				}
+			}
+			
+			@keyframes load2 {
+				from {
+					transform: rotate(0deg) translateY(0px) translateX(0px);
+				}
+				to {
+					transform: rotate(-98deg) translateY(17px) translateX(-30px);
+				}
+			}
+			
+			@keyframes load3 {
+				from {
+					transform: rotate(0deg) translateX(0px) translateY(0px);
+				}
+				to {
+					transform: rotate(-98deg) translateX(-20px) translateY(-66px);
+				}
+			}
+			
+			@keyframes load4 {
+				from {
+					transform: rotate(0deg) translateX(0px) translateY(0px);
+				}
+				to {
+					transform: rotate(-98deg) translateX(69px) translateY(-58px);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="loading" id="load">
+
+		</div>
+		<div class="myload">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			ul {
+				list-style: none;
+			}
+			
+			.fl {
+				float: left;
+			}
+			
+			.clear {
+				clear: both;
+			}
+			
+			.relative {
+				position: relative;
+			}
+			
+			.tran5{
+				-webkit-transition: all 0.8s;
+				-moz-transition: all 0.8s;
+				-ms-transition: all 0.8s;
+				-o-transition: all 0.8s;
+				transition: all 0.8s;
+			}
+			img {
+				width: 500px;
+				transform: translateX(-200px);
+			}
+			.view{
+				margin-left: 10px;
+			}
+			span {
+				position: absolute;
+				width: 15px;
+				top: 10%;
+				left: 3%;
+				line-height: 38px;
+				color: white;
+				font-weight: 900;
+				font-size: 36px;
+			}
+			.box {
+				display: inline-block;
+				width: 192px;
+				height: 100%;
+				/*border: 1px solid red;*/
+				overflow: hidden;
+			}
+			ul:hover .box{
+				width: 140px;
+			}
+			li{
+				width: auto;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			li:hover .box{
+				width: 500px;
+			}
+			li:hover img{
+				transform: translateX(0px);
+			}
+			li:hover span{
+				opacity: 0;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="view">
+			<ul class="relative">
+				<li class="item relative fl">
+					<div class="box tran5">
+						<img class="tran5" src="img/20150120_ifold1.jpg" />
+					</div>
+					<span class="tran5">温泉酒店</span>
+				</li>
+				<li class="item relative fl">
+					<div class="box tran5">
+						<img class="tran5" src="img/20150120_ifold1.jpg" />
+					</div>
+					<span class="tran5">情侣酒店</span>
+				</li>
+				<li class="item relative fl">
+					<div class="box tran5">
+						<img class="tran5" src="img/20150120_ifold1.jpg" />
+					</div>
+					<span class="tran5">设计师酒店</span>
+				</li>
+				<li class="item relative fl">
+					<div class="box tran5">
+						<img class="tran5" src="img/20150120_ifold1.jpg" />
+					</div>
+					<span class="tran5">温泉酒店</span>
+				</li>
+				<li class="item relative fl">
+					<div class="box tran5">
+						<img class="tran5" src="img/20150120_ifold1.jpg" />
+					</div>
+					<span class="tran5">情侣酒店</span>
+				</li>
+				<li class="item relative fl">
+					<div class="box tran5">
+						<img class="tran5" src="img/20150120_ifold1.jpg" />
+					</div>
+					<span class="tran5">设计师酒店</span>
+				</li>
+				<li class="item relative fl">
+					<div class="box tran5">
+						<img class="tran5" src="img/20150120_ifold1.jpg" />
+					</div>
+					<span class="tran5">设计师酒店</span>
+				</li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+		<script src="js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("li").hover(function () {
+				var $index = $(this).siblings().;
+				console.log($index);
+//				$(this).siblings().css("color","blue");
+			})
+		</script>
+	</body>
+
+</html>

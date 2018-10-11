@@ -1,0 +1,317 @@
+@media only screen and (min-width: 770px) {
+	.nav,
+	.banner_hover,
+	.one .swiper-button-next,
+	.one .swiper-button-prev,
+	.sale ul,
+	.news,
+	.team .swiper-container,
+	.part .info_img {
+		display: block;
+	}
+	.nav_s,
+	.advantage,
+	.news_pad,
+	.team_box,
+	.part .photo{
+		display: none;
+	}
+}
+
+@media only screen and (min-width: 640px) and (max-width: 780px) {
+	.nav,
+	.banner_hover,
+	.one .swiper-button-next,
+	.one .swiper-button-prev,
+	.sale ul,
+	.news,
+	.team .swiper-container ,
+	.part .photo{
+		display: none;
+	}
+	.nav_s,
+	.advantage,
+	.news_pad,
+	.team_box ,
+	.part .info_img{
+		display: block;
+	}
+	.desc_txt {
+		font-size: 14px;
+		line-height: 24px;
+	}
+	.one .text {
+		top: 80%;
+		left: 40%;
+	}
+	.advantage {
+		height: 280px;
+		text-align: center;
+		padding: 35px 0 30px 0;
+		background-color: #f8f8f8;
+		margin-bottom: 35px;
+	}
+	.advantage .photo {
+		text-align: center;
+		width: 100%;
+	}
+	.advantage .box {
+		width: 670px;
+		margin: 0 auto;
+	}
+	.advantage .swiper-button-next,
+	.advantage .swiper-button-prev {
+		margin-top: -75px;
+	}
+	.title_txt,
+	span.title {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		display: block;
+		color: #404040;
+		text-align: center;
+		font-size: 16px;
+		height: 40px;
+		line-height: 40px;
+	}
+	.title_info,
+	span.text {
+		display: block;
+		font-size: 12px;
+		line-height: 20px;
+		height: 40px;
+		overflow: hidden;
+	}
+	.advantage .swiper-slide {
+		height: 280px;
+	}
+	.sale .box {
+		position: relative;
+		left: 50%;
+		margin-left: -50px;
+	}
+	.sale_box {
+		margin: 0 auto;
+	}
+	.sale_box .item {
+		width: 48%;
+	}
+	.for_more_,
+	.news {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.news>.title {
+		position: relative;
+		overflow: visible;
+		left: 50%;
+		margin-left: -20px;
+	}
+	.part .info_img {
+		width: 100%;
+	}
+	.part {
+		position: inherit;
+		height: 860px;
+	}
+	.part .text {
+		text-align: center;
+	}
+	.part .for_box {
+		width: 100%;
+		box-sizing: border-box;
+		margin-top: inherit
+	}
+	.part .info_txt {
+		box-shadow: none;
+		height: 0;
+	}
+	.part .info_txt {
+		position: inherit;
+		width: 100%;
+		box-shadow: none;
+		padding: 0;
+		text-align: left;
+	}
+	.news_pad span.title {
+		text-align: left;
+	}
+	.news_pad .item {
+		margin-bottom: 40px;
+	}
+	.news_pad .title {
+		text-align: center;
+	}
+	.team {
+		background-color: white;
+	}
+	.team_box {
+		width: 100%;
+	}
+	.team_box .view {
+		margin-bottom: 20px;
+	}
+	.team_box .person {
+		box-sizing: border-box;
+		padding: 10px;
+		width: 50%;
+		padding: 10px;
+	}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 640px) {
+	.nav,
+	.banner_hover,
+	.one .swiper-button-next,
+	.one .swiper-button-prev,
+	.sale ul,
+	.news,
+	.team .swiper-container ,
+	.part .info_img{
+		display: none;
+	}
+	.nav_s,
+	.advantage,
+	.news_pad,
+	.team_box,
+	.part .photo {
+		display: block;
+	}
+	.desc_txt {
+		font-size: 14px;
+		line-height: 24px;
+	}
+	.one .text {
+		top: 80%;
+		left: 10%;
+		margin-left: -20px;
+	}
+	.advantage {
+		height: 280px;
+		text-align: center;
+		padding: 35px 0 30px 0;
+		background-color: #f8f8f8;
+		margin-bottom: 35px;
+	}
+	.advantage .photo {
+		text-align: center;
+		width: 100%;
+	}
+	.advantage .box {
+		width: 100%;
+		margin: 0 auto;
+	}
+	.advantage .swiper-button-next,
+	.advantage .swiper-button-prev {
+		margin-top: -75px;
+	}
+	.title_txt,
+	span.title {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		display: block;
+		color: #404040;
+		text-align: center;
+		font-size: 16px;
+		height: 40px;
+		line-height: 40px;
+	}
+	.title_info,
+	span.text {
+		display: block;
+		font-size: 12px;
+		line-height: 20px;
+		height: 40px;
+		overflow: hidden;
+	}
+	.advantage .swiper-slide {
+		height: 280px;
+	}
+	.sale .box {
+		position: relative;
+		left: 50%;
+		margin-left: -50px;
+	}
+	.sale_box {
+		margin: 0 auto;
+	}
+	.sale_box .item {
+		width: 48%;
+	}
+	.for_more_,
+	.news {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.news>.title {
+		position: relative;
+		overflow: visible;
+		left: 50%;
+		margin-left: -20px;
+	}
+	.part .info_img {
+		width: 100%;
+	}
+	
+	.part {
+		position: inherit;
+		background-color: white;
+		height: 500px;
+	}
+	.part .text {
+		text-align: center;
+	}
+	.part .for_box {
+		width: 100%;
+		box-sizing: border-box;
+		margin-top: inherit
+	}
+	.part .info_txt {
+		box-shadow: none;
+		height: 0;
+	}
+	.part .info_txt {
+		position: inherit;
+		width: 100%;
+		box-shadow: none;
+		padding: 0;
+		text-align: left;
+	}
+	.news_pad span.title {
+		text-align: left;
+	}
+	.news_pad .item {
+		margin-bottom: 40px;
+	}
+	.news_pad .title {
+		text-align: center;
+	}
+	.team {
+		background-color: white;
+	}
+	.team_box {
+		width: 100%;
+	}
+	.team_box .view {
+		margin-bottom: 20px;
+	}
+	.team_box .person {
+		box-sizing: border-box;
+		padding: 10px;
+		width: 70%;
+	}
+	.part .photo img{
+		width: 100%;
+	}
+	.view img{
+		width: 30%;
+	}
+	.view .person .title_{
+		font-size: 14px;
+	}
+	.view .title_txt_{
+		margin-bottom: 0;
+	}
+}

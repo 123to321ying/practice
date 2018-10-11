@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				perspective: 1000px;
+			}
+			.tran5 {
+				-webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-ms-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+			}
+			img{
+				display: block;
+			}
+			
+			.photo {
+				transform-style: preserve-3d;
+				transform-origin: center bottom;
+				width: 500px;
+				height: 508px;
+				margin: 50px auto;
+			}
+			
+			.photo:hover {
+				transform: rotateX(50deg);
+				transform-origin: center bottom;
+			}
+			
+			.photo::after {
+				content: '';
+				display: block;
+				width: 500px;
+				height: 50px;
+				transform-origin: center top;
+				background: url(img/QQ图片20180911110404.jpg);
+				background-position: center bottom;
+				transform: rotateX(-90deg);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="photo tran5">
+			<img src="img/QQ图片20180911110404.jpg" />
+		</div>
+	</body>
+
+</html>
